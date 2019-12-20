@@ -1,0 +1,10 @@
+# Deployment directories
+node_modules
+dist
+# Optional npm cache directory
+.npm
+# Mac
+.DS_Store
+config/keys.js
+coverage
+.idea

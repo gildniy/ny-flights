@@ -1,0 +1,13 @@
+.logo-container {
+  display: block;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  color: map-get($text-color, 'violet-light');
+  display: block;
+  font-size: 50px;
+  font-weight: bolder;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: map-get($text-color, 'violet');
+}

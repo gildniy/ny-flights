@@ -1,0 +1,13 @@
+section {
+  padding: 40px;
+
+  &.section {
+    &-header {
+      background-color: map-get($section-bg, 'white');
+    }
+
+    &-content {
+      //background-color: map-get($section-bg, 'white');
+    }
+  }
+}
