@@ -25,7 +25,7 @@ export const Content = ({ dateState, placeState, converted, currencyConvert, pla
         flight.Price = (convertedPrice).toFixed(2) + ' ' + name
         const { minPrice, ...dataFlight } = flight
 
-        return <li key={idx}>{JSON.stringify(dataFlight)}</li>
+        return <li className='item' key={idx}>{JSON.stringify(dataFlight)}</li>
       }) : <li>No flight found</li>}
     </ul>
   )

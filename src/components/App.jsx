@@ -23,7 +23,7 @@ class App extends Component {
           <div className="logo-container">
             <div className='logo'>NYFL</div>
             <div className="logo-text">
-              New York Flights Listing
+              NEW YORK FLIGHTS LISTING
             </div>
           </div>
           <div className="buttons-currency">

@@ -5,3 +5,15 @@ body {
   Helvetica, Roboto, Arial, sans-serif;
   color: brown;
 }
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  background-color: white;
+  width: 100%;
+  padding: 30px;
+  margin-top: 10px;
+}
