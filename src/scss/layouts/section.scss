@@ -1,13 +1,142 @@
 section {
-  padding: 40px;
-
   &.section {
     &-header {
+      padding: 20px 40px;
       background-color: map-get($section-bg, 'white');
     }
 
     &-content {
-      //background-color: map-get($section-bg, 'white');
+      .no-flight {
+        width: 100%;
+        height: 50vh;
+        background-color: white;
+        text-align: center;
+        h1{
+          line-height: 200px;
+          color: map-get($text-color, 'violet');
+          text-transform: uppercase;
+        }
+        p {
+          position: relative;
+          left: calc(50% - 100px);
+          font-size: 200px;
+          height: 200px;
+          width: 200px;
+        }
+      }
+      .flight-no {
+        background-color: map-get($component-bg, 'blue');
+        color: map-get($text-color, 'white');
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100px;
+        font-size: 60px;
+        font-weight: bolder;
+      }
+
+      .depart-dt {
+        background-color: map-get($component-bg, 'white');
+        padding: 10px 20px;
+        height: 100px;
+
+        &--title, &--date, &--time {
+          line-height: 28px;
+        }
+
+        &--date, &--time {
+          font-size: 14px;
+          font-weight: bolder;
+        }
+
+        &--title {
+          font-weight: 300;
+          color: map-get($text-color, 'default');
+        }
+
+        &--date {
+          color: map-get($text-color, 'black');
+        }
+
+        &--time {
+          color: map-get($text-color, 'red');
+        }
+      }
+
+      .carrier {
+        background-color: map-get($component-bg, 'grey');
+        padding: 10px 40px;
+        height: 100px;
+
+        &--title, &--data {
+          font-weight: 300;
+        }
+
+        &--title {
+          color: map-get($text-color, 'default');
+        }
+
+        &--data {
+          color: map-get($text-color, 'black');
+          font-size: 30px;
+          line-height: 65px;
+        }
+      }
+
+      .price {
+        background-color: map-get($component-bg, 'white');
+        text-align: center;
+        padding-top: 10px;
+        height: 100px;
+
+        &--title {
+          font-weight: 300;
+          color: map-get($text-color, 'default');
+        }
+
+        &--data {
+          color: map-get($text-color, 'black');
+          font-size: 30px;
+          font-weight: bolder;
+          line-height: 35px;
+        }
+
+        &--currency {
+          font-size: 14px;
+          font-weight: bolder;
+          color: map-get($text-color, 'black');
+        }
+      }
+    }
+  }
+
+  &.from-to-bar {
+    margin: 20px 0;
+    padding: 10px 40px;
+    background-color: map-get($section-bg, 'violet');
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 16px;
+
+    .from-to {
+      &-label,
+      &-name {
+        padding-right: 30px;
+      }
+
+      &-label {
+        color: map-get($text-color, 'dark');
+      }
+
+      &-name {
+        color: map-get($text-color, 'white');
+      }
     }
   }
 }
+footer{
+  text-align: center;
+  background-color: map-get($section-bg, 'white');
+  color: map-get($text-color, 'violet');
+  line-height: 70px;
+}
+

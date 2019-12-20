@@ -14,4 +14,5 @@ const wrapper = document.getElementById('root')
 ReactDOM.render(
   <Provider store={store}>
     <Routes/>
-  </Provider>, wrapper)
+  </Provider>,
+  wrapper)

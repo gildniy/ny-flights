@@ -5,6 +5,6 @@ dist
 .npm
 # Mac
 .DS_Store
-config/keys.js
+#config/keys.js
 coverage
 .idea

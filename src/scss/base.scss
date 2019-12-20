@@ -5,3 +5,8 @@ body {
   Helvetica, Roboto, Arial, sans-serif;
   color: brown;
 }
+
+*.focus, *:focus {
+  outline: 0;
+  box-shadow: none !important;
+}

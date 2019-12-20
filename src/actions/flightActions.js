@@ -2,8 +2,7 @@ import { GET_ALL_FLIGHTS, GET_PLACES, THROW_ERROR } from './types'
 import { RAPID_API_KEY } from '../../config/keys'
 
 const init = {
-  // crossDomain: true,
-  // method: 'GET',
+  crossDomain: true,
   headers: {
     'Content-Type': 'application/json',
     'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',

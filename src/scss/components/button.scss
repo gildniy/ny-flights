@@ -1,0 +1,33 @@
+.btn-grad {
+  background-color: map-get($button-bg, 'default');
+  color: map-get($text-color, 'default');
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: .3em;
+  border: none;
+  border-radius: 5px;
+
+  &:hover {
+    background-position: bottom center;
+  }
+
+  &:hover, &.active {
+    background-image: linear-gradient(to bottom, map-get($button-bg, 'blue') 1%, map-get($button-bg, 'violet') 100%);
+    color: map-get($text-color, 'white');
+  }
+}
+
+.buttons-currency {
+  //background-color: #004444;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.currencies-label {
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: map-get($text-color, 'dark');
+  display: block;
+  font-weight: bolder;
+  font-size: 14px;
+}

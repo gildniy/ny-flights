@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header } from './Header.jsx'
+import { Inputs } from './Inputs.jsx'
 import { Content } from './Content.jsx'
 import { connect } from 'react-redux'
 import { CHANGE_CURRENCY } from '../actions/types'
@@ -11,36 +11,71 @@ class App extends Component {
 
   constructor (props) { super(props)}
 
+  componentDidMount () {
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+  }
+
   render () {
     const { currencyConvert, changeCurrency, currencyState, flightState, placeState, dateState, getFlights, getPlaces, handleChange } = this.props
     const { currency, converted } = currencyState
     const { flights, places } = flightState
+    const currencyStrArray = ['USD', 'EUR', 'GBP', 'ZAR']
+
+    const fromToNames = {}
+    places.forEach(item => {
+      if (item.id === placeState.from) {
+        fromToNames.from = item.name
+      }
+      if (item.id === placeState.to) {
+        fromToNames.to = item.name
+      }
+    })
 
     return (
       <div className="wrapper">
         <section className="section-header">
-          {/*<h2>Currency: {currency}</h2>*/}
-          <div className="logo-container">
-            <div className='logo'>NYFL</div>
-            <div className="logo-text">
-              New York Flights Listing
+          <div className="row">
+            <div className="col-md-4">
+              <div className="logo-container">
+                <div className='logo'>NEW YORK</div>
+                <div className="logo-text">
+                  FLIGHTS LISTING
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8">
+              <div className="buttons-currency">
+                <div className="currencies-label">CURRENCIES</div>
+                {
+                  currencyStrArray.map((btn, idx) =>
+                    <Currencer key={idx}
+                               changeCurrency={changeCurrency}
+                               currencyState={currencyState}
+                               currency={btn}/>,
+                  )
+                }
+              </div>
+              <Inputs
+                placeState={placeState}
+                handleChange={handleChange}
+                dateState={dateState}
+                places={places}
+                currency={currency}
+                flightsNo={flights ? flights.length : 0}
+                getPlaces={getPlaces}/>
             </div>
           </div>
-          <div className="buttons-currency">
-            <Currencer changeCurrency={changeCurrency} currency='USD'/>
-            <Currencer changeCurrency={changeCurrency} currency='EUR'/>
-            <Currencer changeCurrency={changeCurrency} currency='GBP'/>
-            <Currencer changeCurrency={changeCurrency} currency='ZAR'/>
-          </div>
-          <div className="inputs">
-            <Header
-              placeState={placeState}
-              handleChange={handleChange}
-              dateState={dateState}
-              places={places}
-              currency={currency}
-              flightsNo={flights ? flights.length : 0}
-              getPlaces={getPlaces}/>
+        </section>
+        <section className="from-to-bar">
+          <div className="row">
+            <div className="col-md-6">
+              <span className="from-to-label">ORIGIN</span>
+              <span className="from-to-name">{fromToNames.from && (fromToNames.from).toUpperCase()}</span>
+            </div>
+            <div className="col-md-6">
+              <span className="from-to-label">DESTINATION</span>
+              <span className="from-to-name">{fromToNames.to && (fromToNames.to).toUpperCase()}</span>
+            </div>
           </div>
         </section>
         <section className="section-content">
@@ -54,6 +89,9 @@ class App extends Component {
             flights={flights}
           />
         </section>
+        <footer>
+          &copy; <span id="year"/> - Gildas Niyigena
+        </footer>
       </div>
     )
   }

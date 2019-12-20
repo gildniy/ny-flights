@@ -8,7 +8,6 @@ const convertCurrency = (dispatch, { from, to }) => {
     from + '&to=' + to + '&amount=1',
     {
       crossDomain: true,
-      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'x-rapidapi-host': 'currency-converter5.p.rapidapi.com',

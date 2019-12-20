@@ -1,0 +1,8 @@
+.form-label{
+  font-family: 'Montserrat', sans-serif;
+  color: map-get($text-color, 'dark');
+  display: block;
+  font-weight: bolder;
+  font-size: 14px;
+  padding-top: 25px;
+}
