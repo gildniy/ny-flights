@@ -15,22 +15,23 @@ class App extends Component {
     const { currencyConvert, changeCurrency, currencyState, flightState, placeState, dateState, getFlights, getPlaces, handleChange } = this.props
     const { currency, converted } = currencyState
     const { flights, places } = flightState
+    const currencyStrArray = ['USD', 'EUR', 'GBP', 'ZAR']
 
     return (
       <div className="wrapper">
         <section className="section-header">
-          {/*<h2>Currency: {currency}</h2>*/}
           <div className="logo-container">
-            <div className='logo'>NYFL</div>
+            <div className='logo'>N.Y.F.L</div>
             <div className="logo-text">
-              New York Flights Listing
+              NEW YORK FLIGHTS LISTING
             </div>
           </div>
           <div className="buttons-currency">
-            <Currencer changeCurrency={changeCurrency} currency='USD'/>
-            <Currencer changeCurrency={changeCurrency} currency='EUR'/>
-            <Currencer changeCurrency={changeCurrency} currency='GBP'/>
-            <Currencer changeCurrency={changeCurrency} currency='ZAR'/>
+            {
+              currencyStrArray.map((btn, idx) =>
+                <Currencer key={idx} changeCurrency={changeCurrency} currency={btn}/>
+                )
+            }
           </div>
           <div className="inputs">
             <Header
