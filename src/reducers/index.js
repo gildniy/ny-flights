@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
-import currencyReducer from './currencyReducer'
-import dateReducer from './dateReducer'
-import placeReducer from './placeReducer'
-import flightReducer from './flightReducer'
+import { currencyReducer } from './currency/currencyReducer'
+import { dateReducer } from './date/dateReducer'
+import { placeReducer } from './place/placeReducer'
+import { flightReducer } from './flight/flightReducer'
 
 export default combineReducers({
   currencyState: currencyReducer,
   flightState: flightReducer,
   placeState: placeReducer,
-  dateState: dateReducer,
+  dateState: dateReducer || (() => null),
 })

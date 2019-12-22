@@ -1,6 +1,6 @@
-import { CHANGE_CURRENCY, CONVERT_CURRENCY } from '../actions/types'
+import { CHANGE_CURRENCY, CONVERT_CURRENCY } from '../../actions/types'
 
-export const currencyInitialState = {
+const currencyInitialState = {
   currency: 'USD',
   converted: {
     rate: 1,
@@ -18,4 +18,4 @@ const currencyReducer = (state = currencyInitialState, action) => {
       return state
   }
 }
-export default currencyReducer
+export { currencyReducer, currencyInitialState }
