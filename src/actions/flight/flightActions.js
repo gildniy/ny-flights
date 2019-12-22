@@ -1,5 +1,5 @@
-import { GET_ALL_FLIGHTS, GET_PLACES, THROW_ERROR } from './types'
-import { RAPID_API_KEY } from '../../config/keys'
+import { GET_ALL_FLIGHTS, GET_PLACES, THROW_ERROR } from '../types'
+import { RAPID_API_KEY } from '../../../config/keys'
 
 const init = {
   headers: {

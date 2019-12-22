@@ -1,8 +1,10 @@
-import { CHANGE_DATE } from '../actions/types'
-import { formatDate } from '../helpers'
+import { CHANGE_DATE } from '../../actions/types'
+import { formatDate } from '../../helpers/helpers'
 
 export const dateInitialState = {
-  date: formatDate(new Date()),
+  date: typeof formatDate === 'undefined' ?
+    '0000-00-00' : // For testing
+    formatDate(new Date()),
 }
 
 const dateReducer = (state = dateInitialState, action) => {
