@@ -1,4 +1,4 @@
-import { GET_ALL_FLIGHTS, GET_PLACES } from '../actions/types'
+import { GET_ALL_FLIGHTS, GET_PLACES } from '../../actions/types'
 
 const initialState = {
   flights: [],

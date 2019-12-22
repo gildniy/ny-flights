@@ -1,3 +1,9 @@
+import { createStore } from 'redux'
+import { render } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import React from 'react'
+import rootReducers from './reducers'
+
 const formatDate = (date) => {
   const d = new Date(date)
   let month = '' + (d.getMonth() + 1)
@@ -14,29 +20,37 @@ const formatDate = (date) => {
 }
 
 const formatDateToReadable = (userDOB) => {
-  const dob = new Date(userDOB);
+  const dob = new Date(userDOB)
 
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June', 'July',
-    'August', 'September', 'October', 'November', 'December'
-  ];
+    'August', 'September', 'October', 'November', 'December',
+  ]
 
-  const day = dob.getDate();
-  const monthIndex = dob.getMonth();
-  const year = dob.getFullYear();
+  const day = dob.getDate()
+  const monthIndex = dob.getMonth()
+  const year = dob.getFullYear()
 
-  return `${day} ${monthNames[monthIndex]} ${year}`;
+  return `${day} ${monthNames[monthIndex]} ${year}`
 }
 
 const format24To12Time = (time24) => {
-  let ts = time24;
-  const H = +ts.substr(0, 2);
-  let h = (H % 12) || 12;
-  h = (h < 10)?("0"+h):h;  // leading 0 at the left for 1 digit hours
-  const ampm = H < 12 ? " am" : " pm";
-  ts = h + ts.substr(2, 3) + ampm;
-  return ts;
-};
+  let ts = time24
+  const H = +ts.substr(0, 2)
+  let h = (H % 12) || 12
+  h = (h < 10) ? ('0' + h) : h
+  const ampm = H < 12 ? ' am' : ' pm'
+  ts = h + ts.substr(2, 3) + ampm
+  return ts
+}
 
-export { formatDate, formatDateToReadable, format24To12Time }
+const renderWithRedux = (
+  ui, {
+    initialState = {},
+    store = createStore(rootReducers, initialState),
+  } = {}) => {
+  return { ...render(<Provider store={store}>{ui}</Provider>), store }
+}
+
+export { formatDate, formatDateToReadable, format24To12Time, renderWithRedux }
 

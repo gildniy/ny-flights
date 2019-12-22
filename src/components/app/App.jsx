@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Inputs } from './Inputs.jsx'
-import { Content } from './Content.jsx'
+import { Inputs } from '../inputs/Inputs.jsx'
+import { Content } from '../content/Content.jsx'
 import { connect } from 'react-redux'
-import { CHANGE_CURRENCY } from '../actions/types'
-import { Currencer } from './Currencer.jsx'
-import { getAllFlights, getAllPlaces } from '../actions/flightActions'
-import { convertCurrency } from '../actions/currencyActions'
+import { CHANGE_CURRENCY } from '../../actions/types'
+import { Currencer } from '../currencer/Currencer.jsx'
+import { getAllFlights, getAllPlaces } from '../../actions/flight/flightActions'
+import { convertCurrency } from '../../actions/currency/currencyActions'
 
 class App extends Component {
 
@@ -32,7 +32,7 @@ class App extends Component {
     })
 
     return (
-      <div className="wrapper">
+      <div data-testid="root-app" className="wrapper">
         <section className="section-header">
           <div className="row">
             <div className="col-md-4">

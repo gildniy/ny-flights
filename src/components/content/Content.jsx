@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
-import { currencyInitialState } from '../reducers/currencyReducer'
-import { format24To12Time, formatDateToReadable } from '../helpers'
+import { currencyInitialState } from '../../reducers/currency/currencyReducer'
+import { format24To12Time, formatDateToReadable } from '../../helpers'
 
 export const Content = ({ dateState, placeState, converted, currencyConvert, places, currency, flights, getFlights }) => {
 
