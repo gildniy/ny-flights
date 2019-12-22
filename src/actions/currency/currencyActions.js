@@ -1,5 +1,5 @@
-import { CONVERT_CURRENCY, THROW_ERROR } from './types'
-import { RAPID_API_KEY } from '../../config/keys'
+import { CONVERT_CURRENCY, THROW_ERROR } from '../types'
+import { RAPID_API_KEY } from '../../../config/keys'
 
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com/'
 const URL = 'https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from='

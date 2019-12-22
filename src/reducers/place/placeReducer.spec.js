@@ -1,0 +1,3 @@
+describe('Place Reducer', () => {
+  test('', () => {})
+});

@@ -1,4 +1,4 @@
-import { CHANGE_DESTINATION, CHANGE_ORIGIN } from '../actions/types'
+import { CHANGE_DESTINATION, CHANGE_ORIGIN } from '../../actions/types'
 
 const placesInitialState = {
   from: 'NYCA-sky',

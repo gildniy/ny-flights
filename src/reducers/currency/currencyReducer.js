@@ -1,4 +1,4 @@
-import { CHANGE_CURRENCY, CONVERT_CURRENCY } from '../actions/types'
+import { CHANGE_CURRENCY, CONVERT_CURRENCY } from '../../actions/types'
 
 export const currencyInitialState = {
   currency: 'USD',
