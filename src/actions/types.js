@@ -8,6 +8,6 @@ export const GET_PLACES = 'GET_PLACES'
 export const CHANGE_ORIGIN = 'CHANGE_ORIGIN'
 export const CHANGE_DESTINATION = 'CHANGE_DESTINATION'
 // Departure Date
-export const CHANGE_DATE = 'CHANGE_DATE'
+export const CHANGE_PARTIAL_DATE = 'CHANGE_PARTIAL_DATE'
 // Error
 export const THROW_ERROR = 'THROW_ERROR'

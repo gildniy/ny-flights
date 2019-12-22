@@ -21,6 +21,8 @@ class App extends Component {
     const { flights, places } = flightState
     const currencyStrArray = ['USD', 'EUR', 'GBP', 'ZAR']
 
+    console.log('currencyState', currencyState)
+
     const fromToNames = {}
     places.forEach(item => {
       if (item.id === placeState.from) {
@@ -101,8 +103,10 @@ const mapStateToProps = state => state
 const mapDispatchToProps = dispatch => ({
   changeCurrency: currency => dispatch(
     { type: CHANGE_CURRENCY, payload: currency }),
-  handleChange: (event, type) => dispatch(
-    { type, payload: event.target.value }),
+  handleChange: (event) => dispatch({
+    type: 'CHANGE_' + event.target.name.toUpperCase(),
+    payload: event.target.value,
+  }),
   getFlights: (data) => getAllFlights(dispatch, data),
   getPlaces: (queryString) => getAllPlaces(dispatch, queryString),
   currencyConvert: (data) => convertCurrency(dispatch, data),

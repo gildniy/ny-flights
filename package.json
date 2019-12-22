@@ -13,8 +13,9 @@
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "keywords": [
-    "car",
-    "hire",
+    "New York",
+    "flights",
+    "listing",
     "currency"
   ],
   "author": "Gildas Niyigena",
@@ -52,7 +53,6 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^4.4.1"
+    "redux-thunk": "^2.3.0"
   }
 }

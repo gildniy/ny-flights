@@ -1,8 +1,8 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { currencyInitialState } from '../../reducers/currency/currencyReducer'
 import { format24To12Time, formatDateToReadable } from '../../helpers/helpers'
 
-export const Content = ({ dateState, placeState, converted, currencyConvert, places, currency, flights, getFlights }) => {
+export const Content = ({ dateState, placeState, converted, currencyConvert, currency, flights, getFlights }) => {
 
   useEffect(() => {
     const { date } = dateState
@@ -19,7 +19,7 @@ export const Content = ({ dateState, placeState, converted, currencyConvert, pla
   const { rate, name } = converted
 
   return (
-    <Fragment>
+    <div data-testid='content' className='m-0 p-0'>
       {flights.length && rate ? flights.map((flight, idx) => {
 
         const convertedPrice = parseFloat(flight.minPrice) * rate
@@ -53,11 +53,11 @@ export const Content = ({ dateState, placeState, converted, currencyConvert, pla
           </div>
         </div>
       }) : <div className='no-flight'>
-            <p>&#129488;</p>
-            <h1>No flight found</h1>
-          </div>
+        <p>&#129488;</p>
+        <h1>No flight found</h1>
+      </div>
       }
-    </Fragment>
+    </div>
   )
 }
 

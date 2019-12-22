@@ -1,4 +1,4 @@
-import { CHANGE_DATE } from '../../actions/types'
+import { CHANGE_PARTIAL_DATE } from '../../actions/types'
 import { formatDate } from '../../helpers/helpers'
 
 export const dateInitialState = {
@@ -9,7 +9,7 @@ export const dateInitialState = {
 
 const dateReducer = (state = dateInitialState, action) => {
   switch (action.type) {
-    case CHANGE_DATE:
+    case CHANGE_PARTIAL_DATE:
       return { ...state, date: action.payload }
     default:
       return state
