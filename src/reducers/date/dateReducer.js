@@ -1,5 +1,5 @@
 import { CHANGE_DATE } from '../../actions/types'
-import { formatDate } from '../../helpers'
+import { formatDate } from '../../helpers/helpers'
 
 export const dateInitialState = {
   date: typeof formatDate === 'undefined' ?

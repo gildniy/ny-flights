@@ -2,7 +2,7 @@ import { createStore } from 'redux'
 import { render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import React from 'react'
-import rootReducers from './reducers'
+import rootReducers from '../reducers'
 
 const formatDate = (date) => {
   const d = new Date(date)
@@ -19,17 +19,17 @@ const formatDate = (date) => {
   return [year, month, day].join('-');
 }
 
-const formatDateToReadable = (userDOB) => {
-  const dob = new Date(userDOB)
+const formatDateToReadable = (rawDate) => {
+  const date = new Date(rawDate)
 
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December',
   ]
 
-  const day = dob.getDate()
-  const monthIndex = dob.getMonth()
-  const year = dob.getFullYear()
+  const day = date.getDate()
+  const monthIndex = date.getMonth()
+  const year = date.getFullYear()
 
   return `${day} ${monthNames[monthIndex]} ${year}`
 }

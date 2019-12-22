@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { formatDate } from '../../helpers'
+import { formatDate } from '../../helpers/helpers'
 import {
   CHANGE_DATE,
   CHANGE_DESTINATION,
@@ -7,7 +7,7 @@ import {
 } from '../../actions/types'
 
 export const Inputs = ({ placeState, dateState, places, getPlaces, handleChange }) => {
-  const minDate = formatDate((new Date()))
+  const minDate = formatDate(new Date())
   const maxDate = formatDate(
     (new Date()).setMonth((new Date()).getMonth() + 3))
 
