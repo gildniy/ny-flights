@@ -1,12 +1,12 @@
-import { CONVERT_CURRENCY, THROW_ERROR } from '../types'
+import { convertCurrencyAction, throwErrorAction } from '../index'
 import { RAPID_API_KEY } from '../../../config/keys'
 
-const PROXY_URL = 'https://cors-anywhere.herokuapp.com/'
-const URL = 'https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from='
 
 const convertCurrency = (dispatch, { from, to }) => {
+  const PROXY_URL = 'https://cors-anywhere.herokuapp.com/'
+  const URL = 'https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from='
   const { get } = require('axios')
-  get(PROXY_URL + URL + from + '&to=' + to + '&amount=1',
+  const convertPromise = get(PROXY_URL + URL + from + '&to=' + to + '&amount=1',
     {
       headers: {
         'Content-Type': 'application/json',
@@ -14,22 +14,12 @@ const convertCurrency = (dispatch, { from, to }) => {
         'x-rapidapi-key': RAPID_API_KEY,
       },
     })
-  .then(res => res.data)
-  .then(({ rates }) => {
-    return dispatch({
-      type: CONVERT_CURRENCY,
-      payload: {
-        rate: rates[to]['rate'],
-        name: rates[to]['currency_name'],
-      },
-    })
-  })
-  .catch(error => {
-    return dispatch({
-      type: THROW_ERROR,
-      payload: { error },
-    })
-  })
+
+  convertPromise.
+    then(({ data: { rates } }) => dispatch(convertCurrencyAction(rates, to))).
+    catch(error => dispatch(throwErrorAction(error)))
+
+  return convertPromise
 }
 
 export { convertCurrency }

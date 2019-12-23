@@ -1,3 +1,0 @@
-describe('currency Actions', () => {
-  test('', () => {})
-});

@@ -1,4 +1,3 @@
-import App from '../components/app/App'
 import React from 'react'
 
 const {
@@ -9,7 +8,7 @@ const {
 } = require('./helpers')
 
 describe('helpers', () => {
-  describe('formatDate', () =>{
+  describe('formatDate', () => {
     test('1. ', () => {
       expect(formatDate(new Date('2019-12-22'))).toHaveLength(10)
     })
@@ -23,11 +22,19 @@ describe('helpers', () => {
       toHaveLength(4)
   })
 
-  test('format24To12Time', () => {
-    expect(format24To12Time('00:00')).toHaveLength(8)
+  describe('format24To12Time', () => {
+    test('1', () => {
+      expect(format24To12Time('00:00')).toHaveLength(8)
+    })
+    test('2', () => {
+      expect(format24To12Time('13:00')).toHaveLength(8)
+    })
+    test('3', () => {
+      expect(format24To12Time('23:00')).toHaveLength(8)
+    })
   })
 
-  test('renderWithRedux', () => {
-    expect(renderWithRedux(<App/>, {})).toHaveProperty('getByTestId')
+  describe('renderWithRedux', () => {
+    test('1', () => {})
   })
 })

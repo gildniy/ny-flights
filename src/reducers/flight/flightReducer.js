@@ -1,11 +1,11 @@
-import { GET_ALL_FLIGHTS, GET_PLACES } from '../../actions/types'
+import { GET_ALL_FLIGHTS, GET_PLACES } from '../../actions'
 
-const initialState = {
+const flightInitialState = {
   flights: [],
   places: [],
 }
 
-const flightReducer = (state = initialState, action) => {
+const flightReducer = (state = flightInitialState, action) => {
   switch (action.type) {
     case GET_ALL_FLIGHTS:
       return { ...state, flights: [...action.payload] }
@@ -15,4 +15,4 @@ const flightReducer = (state = initialState, action) => {
       return state
   }
 }
-export default flightReducer
+export { flightReducer, flightInitialState }

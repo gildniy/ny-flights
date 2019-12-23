@@ -1,5 +1,5 @@
-import currencyReducer, { currencyInitialState } from './currencyReducer'
-import { CHANGE_CURRENCY, CONVERT_CURRENCY } from '../../actions/types'
+import { currencyInitialState, currencyReducer } from './currencyReducer'
+import { CHANGE_CURRENCY, CONVERT_CURRENCY } from '../../actions'
 
 describe('Currency Reducer', () => {
   test('CHANGE_CURRENCY', () => {

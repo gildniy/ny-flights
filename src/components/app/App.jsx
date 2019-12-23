@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Inputs } from '../inputs/Inputs.jsx'
 import { Content } from '../content/Content.jsx'
 import { connect } from 'react-redux'
-import { CHANGE_CURRENCY } from '../../actions/types'
+import { changeAction, changeCurrencyAction } from '../../actions'
 import { Currencer } from '../currencer/Currencer.jsx'
 import { getAllFlights, getAllPlaces } from '../../actions/flight/flightActions'
 import { convertCurrency } from '../../actions/currency/currencyActions'
@@ -12,7 +12,7 @@ class App extends Component {
   constructor (props) { super(props)}
 
   componentDidMount () {
-    document.getElementById("year").innerHTML = new Date().getFullYear();
+    document.getElementById('year').innerHTML = (new Date().getFullYear()) + ''
   }
 
   render () {
@@ -20,8 +20,6 @@ class App extends Component {
     const { currency, converted } = currencyState
     const { flights, places } = flightState
     const currencyStrArray = ['USD', 'EUR', 'GBP', 'ZAR']
-
-    console.log('currencyState', currencyState)
 
     const fromToNames = {}
     places.forEach(item => {
@@ -92,21 +90,17 @@ class App extends Component {
           />
         </section>
         <footer>
-          &copy; <span id="year"/> - Gildas Niyigena
+          &copy; <span id="year"/> - Gildas Niyigena (<a href="https://github.com/gildniy/ny-flights">Link to project repo</a>)
         </footer>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => state
-const mapDispatchToProps = dispatch => ({
-  changeCurrency: currency => dispatch(
-    { type: CHANGE_CURRENCY, payload: currency }),
-  handleChange: (event) => dispatch({
-    type: 'CHANGE_' + event.target.name.toUpperCase(),
-    payload: event.target.value,
-  }),
+export const mapStateToProps = state => state
+export const mapDispatchToProps = dispatch => ({
+  changeCurrency: currency => dispatch(changeCurrencyAction(currency)),
+  handleChange: (event) => dispatch(changeAction(event)),
   getFlights: (data) => getAllFlights(dispatch, data),
   getPlaces: (queryString) => getAllPlaces(dispatch, queryString),
   currencyConvert: (data) => convertCurrency(dispatch, data),

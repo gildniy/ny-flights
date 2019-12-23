@@ -1,10 +1,5 @@
 import React, { useEffect } from 'react'
 import { formatDate } from '../../helpers/helpers'
-import {
-  CHANGE_DATE,
-  CHANGE_DESTINATION,
-  CHANGE_ORIGIN,
-} from '../../actions/types'
 
 export const Inputs = ({ placeState, dateState, places, getPlaces, handleChange }) => {
   const minDate = formatDate(new Date())

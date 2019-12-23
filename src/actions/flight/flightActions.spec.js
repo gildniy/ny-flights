@@ -1,3 +1,0 @@
-describe('flight Actions', () => {
-  test('', () => {})
-});

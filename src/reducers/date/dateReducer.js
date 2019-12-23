@@ -1,7 +1,7 @@
-import { CHANGE_PARTIAL_DATE } from '../../actions/types'
+import { CHANGE_PARTIAL_DATE } from '../../actions'
 import { formatDate } from '../../helpers/helpers'
 
-export const dateInitialState = {
+const dateInitialState = {
   date: typeof formatDate === 'undefined' ?
     '0000-00-00' : // For testing
     formatDate(new Date()),
@@ -15,4 +15,4 @@ const dateReducer = (state = dateInitialState, action) => {
       return state
   }
 }
-export default dateReducer
+export { dateReducer, dateInitialState }

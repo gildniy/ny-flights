@@ -36,6 +36,6 @@ describe('Inputs Component', () => {
     fireEvent.change(origin, { target: { value: '1' } })
     fireEvent.change(destination, { target: { value: '2' } })
     fireEvent.change(partialDate, { target: { value: today } })
-    expect(handleChange).toHaveBeenCalledTimes(3)
+    expect(handleChange).toBeCalled()
   })
 })
